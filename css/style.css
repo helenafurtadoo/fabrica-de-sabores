@@ -2,9 +2,6 @@ body {
     background-color: #fffffff1;
     font-family:Verdana, Geneva, Tahoma, sans-serif
 }
-
-
-
 /* Título animado */
 .titulo-animado {
     align-items: center;
@@ -16,16 +13,6 @@ body {
     transform: translateY(20px);
     animation: aparecer 1.5s forwards ease-out;
 }
-
-/* animação da entrada */
-@keyframes aparecer {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
 
 .imagem-principal {
     position: relative;
@@ -42,12 +29,6 @@ body {
 }
 
 
-.minha-cor {
-    background-color:#C00F0C !important;
-    color: white;
-
-}
-
 
 .textos{
   display: flex;
@@ -57,6 +38,17 @@ body {
 
 
 
+.minha-cor {
+    background: linear-gradient(180deg, var(--accent), #9b0b0b) !important;
+    color: white;
+    border: none;
+    box-shadow: 0 6px 18px rgba(192,15,12,0.25);
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+.minha-cor:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(192,15,12,0.28);
+}
 
 
 /*---------------------PAGINA FAVORITOS----------------------*/
@@ -170,12 +162,15 @@ body {
 
 /* Estilo para o título animado dentro do contêiner historia */
 .conteiner-historia .titulo-animado {
+    color: #813634;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     flex: 1;
     min-width: 300px;
-    font-size: 2.8rem;
     text-align: left;
-    margin: 0;
-    padding: 0;
     line-height: 1.2;
 }
 
@@ -393,5 +388,36 @@ body {
 @media (max-width: 768px) {
     .cardapio-section .carousel-item img { height: 260px; }
     .cardapio-section .carousel-caption { font-size: 0.9rem; }
+}
+
+
+
+.display-6 {
+    color: #C00F0C;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+
+/* RODAPE (.site-footer) */
+.site-footer {
+        background: linear-gradient(180deg, #939393, #939393);
+        color: #e9e9e9;
+}
+.site-footer a { color: rgb(141, 38, 9); text-decoration: none; }
+.site-footer a:hover { color: #fff; text-decoration: underline; }
+.site-footer h5 { color: #c92a2a; margin-bottom: 0.75rem; }
+.site-footer p { color: #d7d7d7; }
+.site-footer .social-icons a { font-size: 1.2rem; color: #c92a2a; transition: transform 0.15s ease, color 0.15s ease; }
+.site-footer .social-icons a:hover { transform: translateY(-3px); color: #ffffff; }
+.site-footer .container { max-width: 1100px; }
+
+@media (max-width: 576px) {
+        .site-footer { text-align: center; }
+        .site-footer .social-icons { justify-content: center; display: flex; }
 }
 
