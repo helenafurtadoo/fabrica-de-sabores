@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mapa - Fábrica de Sabores</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-sA+e2Yk8kG7k2mGkG4Vb0gq1ZbqjQv6bY2Gk6Z5w5hM=" crossorigin="" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Local styles (relative to assets/) -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        #map {
+            height: 60vh;
+            border-radius: 8px;
+        }
+
+        .map-card {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar (links relativos ao diretório raiz) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../img/logo (1).png" alt="Logo" style="height:40px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+                aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../cardapio.html">Cardápio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../favoritos.html">Favoritos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-4">
+        <div class="row gy-4">
+            <div class="col-12 text-center">
+                <h1 class="display-6">Onde nos encontrar</h1>
+                <p class="text-muted">Mapa interativo — aberto com OpenStreetMap (Leaflet). Clique no marcador para ver
+                    o endereço.</p>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="card map-card shadow-sm">
+                    <div class="card-body p-0">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="col-lg-4">
+                <div class="card shadow-sm mb-3">
+                    <div class="card-body">
+                        <h2 class="h6">Endereço</h2>
+                        <p id="addressText">Asa Norte (SEPN 707/907), Brasília - DF</p>
+
+                        <h3 class="h6 mt-3">Abrir no Google Maps</h3>
+                        <p class="small text-muted">Clique para abrir a localização no Google Maps em nova aba.</p>
+                        <div class="d-grid gap-2">
+                            <a id="openGoogle" class="btn btn-outline-primary" target="_blank" rel="noopener">Abrir no
+                                Google Maps</a>
+                            <a id="openOSM" class="btn btn-outline-secondary" target="_blank" rel="noopener">Abrir no
+                                OpenStreetMap</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h6">Como usar</h3>
+                        <ul class="small">
+                            <li>Arraste e faça zoom no mapa para explorar a área.</li>
+                            <li>Use o botão "Abrir no Google Maps" para obter rotas e mais detalhes.</li>
+                        </ul>
+
+                        <h4 class="h6 mt-3">Deseja usar Google Maps API?</h4>
+                        <p class="small text-muted">Se preferir integrar o Google Maps JS API (placa personalizada ou
+                            geocoding), será necessário uma chave de API. Veja as instruções comentadas abaixo no final
+                            do arquivo.</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-o9N1j7kP8y+6m5s2I0Q6S6VbqI1kHqv4b0zZ5x4bK0k=" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Coordenadas obtidas para Asa Norte (SEPN 707/907), Brasília
+        const LAT = -15.743815;
+        const LNG = -47.8948573;
+        const ZOOM = 16;
+        const ADDRESS = document.getElementById('addressText').innerText;
+
+        // Inicializa o mapa
+        const map = L.map('map').setView([LAT, LNG], ZOOM);
+
+        // Camada de tiles (OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Marcador e popup
+        const marker = L.marker([LAT, LNG]).addTo(map);
+        marker.bindPopup(`<strong>Fábrica de Sabores</strong><br>${ADDRESS}`).openPopup();
+
+        // Links para abrir em serviços externos
+        const openGoogle = document.getElementById('openGoogle');
+        const openOSM = document.getElementById('openOSM');
+        openGoogle.href = `https://www.google.com/maps/search/?api=1&query=${LAT},${LNG}`;
+        openOSM.href = `https://www.openstreetmap.org/?mlat=${LAT}&mlon=${LNG}#map=${ZOOM}/${LAT}/${LNG}`;
+    </script>
+
+    <!--
+    Instruções rápidas para Google Maps (opcional)
+
+    1) Iframe embed (sem chave) — substitua a query com endereço/coord:
+
+    <iframe
+      src="https://www.google.com/maps?q=Rua+Exemplo+123+Cidade&output=embed"
+      width="600" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
+
+    2) Usando Google Maps JavaScript API (requer chave de API):
+       - Obtenha uma chave em https://console.cloud.google.com/apis/credentials
+       - Habilite Maps JavaScript API e Billing.
+       - Inclua o script (substitua YOUR_API_KEY):
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+    - Adapte um initMap() para criar o mapa com as coordenadas.
+
+    Observação: o Leaflet/OpenStreetMap usado aqui não exige chave e funciona imediatamente.
+  -->
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favoritos da Casa - Fábrica de Sabores</title>
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- ÍCONES -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- ESTILOS -->
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <!--------------------------NAVBAR---------------------------->
+
+  <div class="menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+      <a class="logo">
+        <img src="img/logo (1).png">
+      </a>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="sobre.html">Sobre nós</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contato.html">Contato/Pedido</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Menu
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="cardapio.html">Cardápio</a></li>
+
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="favoritos.html">Favoritos da Casa</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn minha-cor" type="submit">Search</button>
+          </form>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!--------------------------FAVORITOS PRINCIPAL--------------------->
+  <main class="page-cardapio container">
+    <header class="py-4 text-center">
+      <h1 class="display-5">Favoritos da Casa</h1>
+      <p class="text-muted">Dê uma olhada nos nossos pratos mais pedidos</p>
+    </header>
+
+    <!-- Seção: Carnes -->
+    <section class="cardapio-section">
+      <h2 class="section-title">🥩 Carnes</h2>
+      <div id="carousel-meats" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carousel-meats" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carousel-meats" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/carne-favoritos.png" class="d-block w-100" alt="Fatias de carne Suína">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Fatias de Carne Suína</h5>
+              <p>Fatias de carne de porco, acompanhadas de flores comestíveis. Serve até 1 pessoa.</p>
+              <p class="price">R$31,00</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/carne2-favoritos.jpg" class="d-block w-100" alt="Carne Grelhada Premium">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Carne Grelhada Premium</h5>
+              <p>Carne grelhada ao ponto, acompanhada de cogumelos. Serve até 2 pessoas.</p>
+              <p class="price">R$75,00</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-meats" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel-meats" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Seção: Massas -->
+    <section class="cardapio-section">
+      <h2 class="section-title">🍝 Pizzas</h2>
+      <div id="carousel-pizza-fav" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carousel-pizza-fav" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carousel-pizza-fav" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/pizza-marguerita-cardapio.jpg" class="d-block w-100" alt="Pizza de marguerita">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Pizza marguerita</h5>
+              <p>Coberta com queijo muçarela, rodelas de tomate fresco, folhas de manjericão e borda tradicional. Um clássico italiano cheio de sabor e frescor.</p>
+              <p class="price">R$80,00</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/pizza-peperoni-favoritos.jpg" class="d-block w-100" alt="Pizza de Peperoni">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Pizza de peperoni</h5>
+              <p>Coberta com queijo muçarela, rodelas de peeproni e borda tradicional</p>
+              <p class="price">R$80,00</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-pizza-fav" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel-pizza-fav" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Seção: Sobremesas -->
+    <section class="cardapio-section mb-5">
+      <h2 class="section-title">🍰 Sobremesas</h2>
+      <div id="carousel-desserts-fav" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carousel-desserts-fav" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carousel-desserts-fav" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/sobremesa2-favoritos.jpg" class="d-block w-100" alt="">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Bolo de Frutas Vermelhas com Chantilly</h5>
+              <p>Fatia de bolo em três camadas com creme, geleia de frutas vermelhas e chantilly, finalizada com morango fresco.</p>
+              <p class="price">R$21,90</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/sobremesa-favoritos.jpg" class="d-block w-100" alt="Pafrait de frutas">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Pafrait de Frutas com Iogurte</h5>
+              <p>Camadas de iogurte, frutas frescas e granola. Uma delícia refrescante!</p>
+              <p class="price">R$18,90</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-desserts-fav"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel-desserts-fav"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
